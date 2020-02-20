@@ -8,7 +8,7 @@ var EmailId = {
 
 function validatingIdObjects() {
   for (var i in EmailId) {
-    var x = validation.emailIdValidation(EmailId[i]);
+    var x = validation.checkingUserinput(EmailId[i]);
     return x;
   }
 }
