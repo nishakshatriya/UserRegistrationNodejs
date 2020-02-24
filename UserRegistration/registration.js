@@ -36,8 +36,6 @@ module.exports = {
       if (typeof input != NaN) {
         return false;
       }
-    } else {
-      return false;
     }
   }
 };

@@ -4,31 +4,31 @@ const emailValid = require("../UserRegistration/email");
 
 //FirstName
 describe("FirstName Validation", function() {
-  it("valid username FirstLetter Caps", () => {
+  it("When given valid username should return true", () => {
     let firstname = validation.checkingUserinput("firstName","Nisha");
     assert.equal(true, firstname);
   }),
-    it("Invalid username FirstLetter lowercase", () => {
+    it("When given user name first letter lowercase should return false", () => {
       let firstname = validation.checkingUserinput("firstName","nish");
       assert.equal(false, firstname);
     }),
-    it("Invalid username Minimum 3 letters", () => {
+    it("When given username less than 3 chars should return false", () => {
       let firstname = validation.checkingUserinput("firstName","ni");
       assert.equal(false, firstname);
     }),
-    it("Invalid username if SpaceEncountered", () => {
+    it("When space encountered in username should return false", () => {
       let firstname = validation.checkingUserinput("firstName","Nis ha");
       assert.equal(false, firstname);
     }),
-    it("Invalid if undefined", () => {
+    it("When username field is empty string should return 0", () => {
       let firstname = validation.checkingUserinput("firstName","");
       assert.equal(0,firstname);
     }),
-    it("Invalid if null", () => {
+    it("When username field is null should return 0", () => {
       let firstname = validation.checkingUserinput("firstName",null);
       assert.equal(0,firstname);
     }),
-    it("Invalid username if Special char is present", () => {
+    it("When username has special character should return false ", () => {
       let firstname = validation.checkingUserinput("firstName","Ni@ha");
       assert.equal(false, firstname);
     });
@@ -36,31 +36,31 @@ describe("FirstName Validation", function() {
 
 // LastName
 describe("Lastname Validation", function() {
-  it("valid lastname", () => {
+  it("When given valid lastname should return true", () => {
     let lastname = validation.checkingUserinput("lastName","Kshatriya");
     assert.equal(true, lastname);
   }),
-    it("Invalid lastname", () => {
+    it("When given lastname first char lowercase should return false", () => {
       let lastname = validation.checkingUserinput("lastName","ksh");
       assert.equal(false, lastname);
     }),
-    it("Invalid username Minimum 3 letters", () => {
+    it("When given lastname less than 3 chars should return false", () => {
       let lastname = validation.checkingUserinput("lastName","ks");
       assert.equal(false, lastname);
     }),
-    it("Invalid username if SpaceEncountered", () => {
+    it("When space encountered in username should return false", () => {
       let lastname = validation.checkingUserinput("lastName","Ksh at ri ya");
       assert.equal(false, lastname);
     }),
-    it("Invalid if undefined", () => {
+    it("When given lastname as empty string should return 0", () => {
       let lastname = validation.checkingUserinput("lastName","");
       assert.equal(0,lastname);
     }),
-    it("Invalid if null", () => {
+    it("When given lastname null should return 0", () => {
       let lastname = validation.checkingUserinput("lastName",null);
       assert.equal(0,lastname);
     }),
-    it("Invalid username if special char Encounter", () => {
+    it("When lastname has special symbol should return false", () => {
       let lastname = validation.checkingUserinput("lastName","Kshatr@iy");
       assert.equal(false, lastname);
     });
@@ -68,35 +68,35 @@ describe("Lastname Validation", function() {
 
 //PhoneNumber
 describe("Validating Phone Number", () => {
-  it("number format 1", () => {
+  it("When given phone number in valid format should return true", () => {
     let phoneNo = validation.checkingUserinput("number","+91 9922123456");
     assert.equal(true, phoneNo);
   }),
-    it("Invalid if characters present", () => {
+    it("When given phone number has chars should return false", () => {
       let phoneNo = validation.checkingUserinput("number","+91 99221ab56");
       assert.equal(false, phoneNo);
     }),
-    it("Invalid for more then 10 nos ", () => {
+    it("When given phone number has more than 10 digit should return false ", () => {
       let phoneNo = validation.checkingUserinput("number","+91 999999999999");
       assert.equal(false, phoneNo);
     }),
-    it("Valid Format 2 ", () => {
+    it("When given phone number in valid format should return true ", () => {
       let phoneNo = validation.checkingUserinput("number","91 9922112561");
       assert.equal(true, phoneNo);
     }),
-    it("Invalid Format ", () => {
+    it("IWhen given phone number in valid format should return true", () => {
       let phoneNo = validation.checkingUserinput("number","9921910319");
       assert.equal(true, phoneNo);
     }),
-    it("Invalid if undefined", () => {
+    it("When given phone number is blank should return 0", () => {
       let phoneNo = validation.checkingUserinput("number","");
       assert.equal(0,phoneNo);
     }),
-    it("Invalid if null", () => {
+    it("When given phone number is null should return 0", () => {
       let phoneNo = validation.checkingUserinput("number",null);
       assert.equal(0,phoneNo);
     }),
-    it("Invalid if less than 10", () => {
+    it("When given phone number less than 10 digit should return true", () => {
       let phoneNo = validation.checkingUserinput("number","989");
       assert.equal(false, phoneNo);
     });
@@ -104,19 +104,19 @@ describe("Validating Phone Number", () => {
 
 //Mail-ID
 describe("Email Validation", function() {
-  it("Valid email_id", () => {
+  it("When given valid emaild_id format should return true", () => {
     let id = validation.checkingUserinput("id","nisha.kshatriya08@gmail.com");
     assert.equal(true, id);
   }),
-    it("Invalid email id", () => {
+    it("When given invalid email_id should return false", () => {
       let id = validation.checkingUserinput("id","abc@gmail@com");
       assert.equal(false, id);
     }),
-    it("Invalid if undefined", () => {
+    it("When given email_id field is empty should return 0", () => {
       let id = validation.checkingUserinput("id","");
       assert.equal(0,id);
     }),
-    it("Invalid if null", () => {
+    it("When given email_id is  null should return 0", () => {
       let id = validation.checkingUserinput("id",null);
       assert.equal(0,id);
     });
@@ -124,34 +124,31 @@ describe("Email Validation", function() {
 
 //Password
 describe("Password Validation", function() {
-  it("valid format", () => {
+  it("When given password is valid should return true", () => {
     let pswd = validation.checkingUserinput("pswd","Nisha@123");
     assert.equal(true, pswd);
   }),
-    it("less than 8 chars", () => {
+    it("When given password is less than 8 characters should return", () => {
       let pswd = validation.checkingUserinput("pswd","Nisha12");
       assert.equal(false, pswd);
     }),
-    it("Atleast 1 UpperCase", () => {
+    it("When given password doesnt have atleast 1 uppercase should return false", () => {
       let pswd = validation.checkingUserinput("pswd","Nisha12");
       assert.equal(false, pswd);
     }),
-    it("less than 8 chars", () => {
-      let pswd = validation.checkingUserinput("pswd","Nisha12");
-    }),
-    it("less than 1 number", () => {
+    it("When given password doesnt have atleast 1 number should return false", () => {
       let pswd = validation.checkingUserinput("pswd","Nishaaa@aa");
       assert.equal(false, pswd);
     }),
-    it("Atleast 1 special symbol", () => {
+    it("When given password doesnt have atleast 1 special char should return false", () => {
       let pswd = validation.checkingUserinput("pswd","Nishaa123445");
       assert.equal(false, pswd);
     }),
-    it("Invalid if undefined", () => {
+    it("When given password is blank should return false", () => {
       let pswd = validation.checkingUserinput("pswd","");
       assert.equal(false,pswd);
     }),
-    it("Invalid if null", () => {
+    it("When given password is null should return false", () => {
       let pswd = validation.checkingUserinput("pswd",null);
       assert.equal(false,pswd);
     });
